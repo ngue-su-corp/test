@@ -20,6 +20,11 @@ public class ContactServiceImpl implements ContactService {
     public void addContact(Contact contact) {
         contactDAO.addContact(contact);
     }
+    
+    @Transactional
+    public void updateContact(Contact contact) {
+        contactDAO.updateContact(contact);
+    }
  
     @Transactional
     public List<Contact> listContact() {

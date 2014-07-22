@@ -28,11 +28,15 @@ public class ContactController {
         return "contact";
     }
  
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String addContact(@ModelAttribute("contact")
     Contact contact, BindingResult result) {
  
-        contactService.addContact(contact);
+    	if(null != contact.getId() && contact.getId() > 0){
+    		contactService.updateContact(contact);
+    	}else{
+    		contactService.addContact(contact);
+    	}
  
         return "redirect:/index";
     }

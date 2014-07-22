@@ -9,7 +9,7 @@
  
 <h2>Contact Manager</h2>
  
-<form:form method="post" action="${pageContext.request.contextPath}/add" commandName="contact">
+<form:form method="post" action="${pageContext.request.contextPath}/save" commandName="contact">
  
     <table>
     <tr>
@@ -30,6 +30,7 @@
     </tr>
     <tr>
         <td colspan="2">
+        	<form:input type="hidden" path="id" />
             <input type="submit" value="<spring:message code="label.addcontact"/>" />
         </td>
     </tr>
